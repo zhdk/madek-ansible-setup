@@ -1,0 +1,15 @@
+Setting up Madek with Ansible
+=============================
+
+This is work in progress. 
+
+TODO: 
+
+* create admin
+* import metadataset 
+* create data for basic setup (Susanne)
+* setup ftp dropbox
+* setup for zencoder
+* default mode should be local
+* refer to master/release branch
+
