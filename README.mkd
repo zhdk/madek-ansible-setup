@@ -1,11 +1,21 @@
 Setting up Madek with Ansible
 =============================
 
-This is work in progress. 
+Usage
+-----
+
+### Install or Upgrade Madek
+
+    ansible-playbook  -i hosts_vm play_setup-and-deploy.yml
+
+### Set Admin Passord
+
+    ansible-playbook  -i hosts_vm play_create-admin.yml -e 'admin_password=YOUR-SECRETE-PASSWORD'
+
 
 TODO: 
+----
 
-* create admin
 * import metadataset 
 * create data for basic setup (Susanne)
 * setup ftp dropbox

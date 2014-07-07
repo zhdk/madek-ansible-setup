@@ -1,0 +1,15 @@
+rails_env: production
+madek_root_dir: /home/madek/madek_app
+madek_git_ref: 2.0.8
+mri_ruby_version: 2.1.2
+
+# database
+database:
+  username: madek
+  password: madek
+  hostname: localhost
+  port: 5432
+  database: madek_production
+  pool: 10
+
+

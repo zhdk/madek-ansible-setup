@@ -1,0 +1,17 @@
+
+- name: Db-seed for admin user
+  template: src=seeds.rb
+            dest={{madek_root_dir}}/db/seeds.rb
+            mode=0755
+
+- name: Seed
+  shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh 
+          && rbenv-load 
+          && cd {{madek_root_dir}}
+          && export RAILS_ENV={{rails_env}} 
+          && export RBENV_VERSION={{mri_ruby_version}} 
+          && bundle exec rake db:seed' madek
+         executable=/bin/bash
+
+
+
