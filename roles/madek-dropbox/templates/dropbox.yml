@@ -1,0 +1,6 @@
+# Ansible Managed
+dropbox:
+  root_dir: '{{dropbox_root_path}}'
+  server: '{{ dropbox_server_name | default(ansible_default_ipv4.address)}}'
+  user: 'dropbox'
+  password: '{{dropbox_pw}}'

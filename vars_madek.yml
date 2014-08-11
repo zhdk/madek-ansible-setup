@@ -1,6 +1,6 @@
 rails_env: production
 madek_root_dir: /home/madek/madek_app
-madek_git_ref: 2.0.8
+madek_git_ref: next
 mri_ruby_version: 2.1.2
 
 # database

@@ -16,10 +16,11 @@ Usage
 TODO: 
 ----
 
+* configure/hide ZHdK Login 
+* create initial and generic usage terms 
 * import metadataset 
 * create data for basic setup (Susanne)
-* setup ftp dropbox
 * setup for zencoder
-* default mode should be local
+* test local install on the machine 
 * refer to master/release branch
 

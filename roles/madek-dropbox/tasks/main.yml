@@ -1,0 +1,74 @@
+- name: install jdk
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items: 
+    - whois 
+    - vsftpd
+
+
+### vsftpd server #############################################################
+
+- lineinfile: dest=/etc/shells line=/usr/sbin/nologin
+
+- template: src=vsftpd.conf
+            dest=/etc/vsftpd.conf 
+  register: vsftpd_conf
+
+- service: name=vsftpd
+           state=restarted
+  when: vsftpd_conf.changed
+  
+
+### salt for dropbox pw #######################################################
+
+- shell:  head -c 8 /dev/urandom | hexdump -e '"%x"' > /etc/madek/dropbox_salt.txt
+          creates=/etc/madek/dropbox_salt.txt
+
+- file: path=/etc/madek/dropbox_salt.txt mode=0700
+
+- shell : cat /etc/madek/dropbox_salt.txt
+  register: dropbox_salt_task
+  changed_when: False
+
+
+### dropbox pw ################################################################
+
+- shell:  head -c 8 /dev/urandom | base64 | head -c 8 - > /etc/madek/dropbox_pw.txt
+          creates=/etc/madek/dropbox_pw.txt
+
+- file: path=/etc/madek/dropbox_pw.txt mode=0700
+
+- shell : cat /etc/madek/dropbox_pw.txt
+  register: dropbox_pw_task
+  changed_when: False
+
+- set_fact: dropbox_pw="{{dropbox_pw_task.stdout}}"
+
+### dropbox user ##############################################################
+
+- command: mkpasswd --method=SHA-512 -S '{{dropbox_salt_task.stdout}}' '{{dropbox_pw}}'
+  register: dropbox_password_hash 
+  changed_when: False
+
+- user: name=dropbox
+        shell=/usr/sbin/nologin
+        group=madek
+        home={{dropbox_root_path}}
+        password={{dropbox_password_hash.stdout}}
+
+- file: path={{dropbox_root_path}}
+        owner=madek
+        group=madek
+        state=directory
+        mode=0710
+
+- template: src=dropbox.yml 
+            dest={{madek_root_dir}}/config/dropbox.local.yml
+            mode=0600
+            owner=madek
+  register: dropbox_config
+
+- name: Passenger reload madek
+  file: path={{madek_root_dir}}/tmp/restart.txt
+        state=touch
+  when: dropbox_config.changed
+

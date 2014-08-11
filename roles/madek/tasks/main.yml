@@ -20,9 +20,10 @@
         dest={{madek_root_dir}}
         version={{madek_git_ref}}
         update=yes
+        force=yes
   register: git_clone_or_update
-  changed_when: git_clone_or_update.before != git_clone_or_update.after
-
+  #failed_when: "'Local modifications exist' in git_clone_or_update.msg"
+  #changed_when: git_clone_or_update.before != git_clone_or_update.after
 
 - name: Create target dir 
   file: path=/etc/madek
@@ -43,7 +44,7 @@
   template: src=secrets.yml
             dest={{madek_root_dir}}/config/secrets.yml
             owner=madek
-            group=www-data
+            group=madek
             mode=0640
 
 - name: Configure database
@@ -106,6 +107,7 @@
           executable=/bin/bash
   register: precompile_assets
   changed_when: not precompile_assets.stderr | match("")
+
 
 - service:  name=apache2
             state=reloaded

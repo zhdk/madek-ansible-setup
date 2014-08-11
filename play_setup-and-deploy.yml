@@ -1,3 +1,11 @@
+
+- hosts: all
+  tasks: 
+  - apt:  upgrade=dist
+          update_cache=yes 
+          cache_valid_time=3600
+
+
 - hosts: madek
 
   vars:
@@ -22,15 +30,10 @@
         default: True
 
     - role: apache-httpd
-      apache_httpd_enabled_modules: 
-        - expires
-        - headers
-        - proxy
-        - proxy_http
-        - rewrite
-        - xsendfile
 
     - role: passenger 
 
     - role: madek
+
+    - role: madek-dropbox
 
