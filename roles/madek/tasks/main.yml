@@ -27,11 +27,11 @@
 
 - name: Create target dir 
   file: path=/etc/madek
-        owner=madek
-        group=madek
+        owner=root
+        group=root
         state=directory
         recurse=true
-        mode=0700
+        mode=0600
 
 - shell:  head -c 64 /dev/urandom | base64 --wrap=0 > /etc/madek/random.txt
           creates=/etc/madek/random.txt
@@ -59,9 +59,8 @@
             mode=0755
 
 - name: Enable site 
-  command: a2ensite madek
+  file: src=/etc/apache2/sites-available/madek.conf dest=/etc/apache2/sites-enabled/madek.conf state=link
   register: enable_site
-  changed_when: not enable_site.stdout | match(".*enabled.*")
 
 - name: Bundle
   shell: su -l -s /bin/bash -c 'source /etc/profile.d/rbenv-load.sh 

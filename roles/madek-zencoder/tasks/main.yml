@@ -3,6 +3,25 @@
     - whois 
     - apg
 
+
+
+### store api key ##############################################################
+
+- shell : echo '{{zencoder_api_key}}' > {{zencoder_api_key_file}}
+  when: zencoder_api_key is defined
+
+- stat: path={{zencoder_api_key_file}} 
+  register: zencoder_api_key_file_stat
+
+- shell : cat {{zencoder_api_key_file}}
+  register: zencoder_api_key_file_content
+  changed_when: False
+  when: zencoder_api_key_file_stat.stat.exists
+
+- set_fact: zencoder_api_key="{{zencoder_api_key_file_content.stdout}}"
+  when: zencoder_api_key_file_stat.stat.exists
+
+
 ### salt for zencoder_inbox pw #################################################
 
 - shell:  apg -n 1 -x 10 -m 10 -M sNC > /etc/madek/zencoder_inbox_salt.txt

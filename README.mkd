@@ -1,16 +1,53 @@
 Setting up Madek with Ansible
 =============================
 
-Usage
------
+Step by step procedure
+----------------------
+
+### Create your hosts configugration file
+
+The easiest way is to copy the provided `hosts_example` file:
+
+    cp hosts_example hosts
+
+Adjust the value of the ansible_ssh_host variable therein with the ip
+of your madek server. If the ip is 10.0.0.1 the line should read: 
+
+    madek-host ansible_ssh_host=10.0.0.1 ansible_ssh_user=root
+
 
 ### Install or Upgrade Madek
 
-    ansible-playbook  -i hosts_vm play_setup-and-deploy.yml
+    ansible-playbook  -i hosts play_setup-and-deploy.yml
 
-### Set Admin Passord
+### Create a Admin User and set the Password 
 
-    ansible-playbook  -i hosts_vm play_create-admin.yml -e 'admin_password=YOUR-SECRETE-PASSWORD'
+    ansible-playbook -i hosts play_create-admin.yml -e 'admin_password=YOUR-SECRETE-PASSWORD'
+
+
+Advanced Topics 
+---------------
+
+### Configure Zencoder
+
+Set the `zencoder_enabled` variable in your hosts file to `True`, and
+the `zencoder_test_mode` to your desired value (probably `False`).
+
+    [madek:vars]
+    zencoder_enabled=True
+    zencoder_test_mode=False
+
+Keep these parameters in the hosts file. Run the setup-and-deploy play
+with an additional parameter specifying your zencoder api-key:
+
+    ansible-playbook  -i hosts play_setup-and-deploy.yml -e 'zencoder_api_key=YOUR-ZENCODER-API-KEY'
+
+Note: The *setup-and-deploy* playbook will remember the
+`zencoder_api_key`. There is no need to specify it again when the
+setup-and-deploy playbook will be run in the future, to upgrade your
+madek installation e.g.
+
+
 
 
 TODO: 
@@ -20,7 +57,6 @@ TODO:
 * create initial and generic usage terms 
 * import metadataset 
 * create data for basic setup (Susanne)
-* setup for zencoder
 * test local install on the machine 
 * refer to master/release branch
 
