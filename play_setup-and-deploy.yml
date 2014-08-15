@@ -16,6 +16,7 @@
   roles: 
     - role: debuntu-setup
     - role: postgresql
+    - role: ftp-server
     - role: madek-user
 
     - role: rbenv
@@ -36,4 +37,8 @@
     - role: madek
 
     - role: madek-dropbox
+
+    - role: madek-zencoder
+      tags: [zencoder]
+
 

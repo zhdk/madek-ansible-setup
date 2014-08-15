@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Ansible managed 
+
+find {{dropbox_root_path}} -type f -mtime +7 -exec rm -rf {}  \;

@@ -1,0 +1,5 @@
+# Customize this file 
+zencoder: 
+  enabled?: False
+  test_mode?: False
+  api_key: NULL 

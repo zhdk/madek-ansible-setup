@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Ansible managed 
+
+find {{zencoder_inbox_root_path}} -type f -mtime +3 -exec rm -rf {}  \;

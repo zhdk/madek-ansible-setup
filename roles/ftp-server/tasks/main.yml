@@ -1,0 +1,15 @@
+- apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items: 
+    - vsftpd
+
+- lineinfile: dest=/etc/shells line=/usr/sbin/nologin
+
+- template: src=vsftpd.conf
+            dest=/etc/vsftpd.conf 
+  register: vsftpd_conf
+
+- service: name=vsftpd
+           state=restarted
+  when: vsftpd_conf.changed
+  
+

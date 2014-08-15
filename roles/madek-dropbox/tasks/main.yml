@@ -1,26 +1,11 @@
-- name: install jdk
-  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+- apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
   with_items: 
     - whois 
-    - vsftpd
-
-
-### vsftpd server #############################################################
-
-- lineinfile: dest=/etc/shells line=/usr/sbin/nologin
-
-- template: src=vsftpd.conf
-            dest=/etc/vsftpd.conf 
-  register: vsftpd_conf
-
-- service: name=vsftpd
-           state=restarted
-  when: vsftpd_conf.changed
-  
+    - apg
 
 ### salt for dropbox pw #######################################################
 
-- shell:  head -c 8 /dev/urandom | hexdump -e '"%x"' > /etc/madek/dropbox_salt.txt
+- shell:  apg -n 1 -x 10 -m 10 -M sNC > /etc/madek/dropbox_salt.txt
           creates=/etc/madek/dropbox_salt.txt
 
 - file: path=/etc/madek/dropbox_salt.txt mode=0700
@@ -32,7 +17,7 @@
 
 ### dropbox pw ################################################################
 
-- shell:  head -c 8 /dev/urandom | base64 | head -c 8 - > /etc/madek/dropbox_pw.txt
+- shell:  apg -n 1 -x 10 -m 10 -M sNC > /etc/madek/dropbox_pw.txt
           creates=/etc/madek/dropbox_pw.txt
 
 - file: path=/etc/madek/dropbox_pw.txt mode=0700
@@ -42,6 +27,7 @@
   changed_when: False
 
 - set_fact: dropbox_pw="{{dropbox_pw_task.stdout}}"
+
 
 ### dropbox user ##############################################################
 
@@ -71,4 +57,11 @@
   file: path={{madek_root_dir}}/tmp/restart.txt
         state=touch
   when: dropbox_config.changed
+
+
+### sweep dropbox files after 7 days ##########################################
+
+- template: src=sweep-dropbox
+            dest=/etc/cron.hourly/sweep-dropbox
+            mode=0755
 

@@ -1,0 +1,81 @@
+- apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items: 
+    - whois 
+    - apg
+
+### salt for zencoder_inbox pw #################################################
+
+- shell:  apg -n 1 -x 10 -m 10 -M sNC > /etc/madek/zencoder_inbox_salt.txt
+          creates=/etc/madek/zencoder_inbox_salt.txt
+
+- file: path=/etc/madek/zencoder_inbox_salt.txt mode=0700
+
+- shell : cat /etc/madek/zencoder_inbox_salt.txt
+  register: zencoder_inbox_salt_task
+  changed_when: False
+
+
+### zencoder_inbox pw ##########################################################
+
+- shell:  apg -n 1 -x 10 -m 10 -M sNC > /etc/madek/zencoder_inbox_pw.txt
+          creates=/etc/madek/zencoder_inbox_pw.txt
+
+- file: path=/etc/madek/zencoder_inbox_pw.txt mode=0700
+
+- shell : cat /etc/madek/zencoder_inbox_pw.txt
+  register: zencoder_inbox_pw_task
+  changed_when: False
+
+- set_fact: zencoder_inbox_pw="{{zencoder_inbox_pw_task.stdout}}"
+
+- debug: var=zencoder_inbox_pw
+
+### zencoder_inbox user ########################################################
+
+- command: mkpasswd --method=SHA-512 -S '{{zencoder_inbox_salt_task.stdout}}' '{{zencoder_inbox_pw}}'
+  register: zencoder_inbox_password_hash 
+  changed_when: False
+
+- user: name={{zencoder_user_name}}
+        shell=/usr/sbin/nologin
+        group=madek
+        home={{zencoder_inbox_root_path}}
+        password={{zencoder_inbox_password_hash.stdout}}
+
+- file: path={{zencoder_inbox_root_path}}
+        owner=root
+        group=madek
+        state=directory
+        mode=0710
+
+- file: path={{zencoder_inbox_root_path}}/import
+        owner={{zencoder_user_name}}
+        group=madek
+        state=directory
+        mode=0770
+
+- template: src=zencoder.local.yml 
+            dest={{madek_root_dir}}/config/zencoder.local.yml
+            mode=0600
+            owner=madek
+  register: zencoder_config
+
+- file: src=zencoder.custom.yml 
+        force=false
+        dest={{madek_root_dir}}/config/zencoder.local.yml
+        mode=0600
+        owner=madek
+
+
+- name: Passenger reload madek
+  file: path={{madek_root_dir}}/tmp/restart.txt
+        state=touch
+  when: zencoder_config.changed
+
+
+### sweep zencoder_inbox files after 3 days ####################################
+
+- template: src=sweep-zencoder-inbox
+            dest=/etc/cron.hourly/sweep-zencoder-inbox
+            mode=0755
+

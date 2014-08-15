@@ -1,6 +1,6 @@
 rails_env: production
 madek_root_dir: /home/madek/madek_app
-madek_git_ref: next
+madek_git_ref: ts
 mri_ruby_version: 2.1.2
 
 # database
@@ -11,5 +11,4 @@ database:
   port: 5432
   database: madek_production
   pool: 10
-
 

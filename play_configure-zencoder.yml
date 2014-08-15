@@ -1,0 +1,7 @@
+- hosts: madek
+
+  vars_files:
+    - vars_madek.yml
+
+  roles: 
+    - role: create-admin
