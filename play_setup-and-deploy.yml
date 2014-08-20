@@ -8,11 +8,6 @@
 
 - hosts: madek
 
-  vars:
-
-  vars_files:
-    - vars_madek.yml
-
   roles: 
     - role: debuntu-setup
     - role: postgresql

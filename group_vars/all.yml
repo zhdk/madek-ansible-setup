@@ -1,4 +1,7 @@
+### global defaults ############################################################
+
 rails_env: production
+madek_git_ref: master
 madek_root_dir: /home/madek/madek_app
 mri_ruby_version: 2.1.2
 

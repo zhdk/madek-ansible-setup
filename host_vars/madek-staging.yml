@@ -1,0 +1,6 @@
+### specific settings for host madek-staging ###################################
+
+madek_git_ref: staging
+ntp_server: ntp.zhdk.ch
+zencoder_enabled: True
+zencoder_test_mode: True
