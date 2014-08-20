@@ -45,6 +45,12 @@
             dest={{madek_root_dir}}/config/secrets.yml
             owner=madek
             group=madek
+            mode=0600
+
+  template: src=settings.local.yml
+            dest={{madek_root_dir}}/config/settings.local.yml
+            owner=madek
+            group=madek
             mode=0640
 
 - name: Configure database

@@ -1,0 +1,8 @@
+[madek]
+madek-host ansible_ssh_host=195.176.254.32 ansible_ssh_user=root
+
+[madek:vars]
+madek_git_ref=staging
+ntp_server=ntp.zhdk.ch
+zencoder_enabled=True
+zencoder_test_mode=True
