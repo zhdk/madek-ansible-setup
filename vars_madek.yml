@@ -1,6 +1,5 @@
 rails_env: production
 madek_root_dir: /home/madek/madek_app
-madek_git_ref: ts
 mri_ruby_version: 2.1.2
 
 zencoder_api_key_file: /etc/madek/zencoder_api_key.txt
