@@ -13,6 +13,9 @@
         state=directory
         mode=0755
 
+- debug: var=madek_git_ref
+  tags: [debug]
+
 - name: Git clone or update project
   sudo: True
   sudo_user: madek
@@ -22,6 +25,7 @@
         update=yes
         force=yes
   register: git_clone_or_update
+  tags: [debug]
   #failed_when: "'Local modifications exist' in git_clone_or_update.msg"
   #changed_when: git_clone_or_update.before != git_clone_or_update.after
 
