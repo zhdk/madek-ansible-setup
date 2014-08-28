@@ -58,6 +58,7 @@
 - user: name={{zencoder_user_name}}
         shell=/usr/sbin/nologin
         group=madek
+        uid=1006
         home={{zencoder_inbox_root_path}}
         password={{zencoder_inbox_password_hash.stdout}}
 
