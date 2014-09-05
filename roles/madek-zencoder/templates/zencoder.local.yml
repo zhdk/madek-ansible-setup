@@ -1,7 +1,7 @@
 # Ansible managed; DO NOT EDIT 
 # see zencoder.custom.yml
 zencoder: 
-  ftp_base_url: ftp://{{zencoder_user_name}}:{{zencoder_inbox_pw}}@{{madek_host_name | default(ansible_default_ipv4.address)}}/import
+  ftp_base_url: ftp://zencoder:{{zencoder_inbox_pw}}@{{madek_host_name | default(ansible_default_ipv4.address)}}/import
   enabled?: {{zencoder_enabled}}
   test_mode?: {{zencoder_test_mode}} 
   api_key: {{zencoder_api_key | default('NULL') }}

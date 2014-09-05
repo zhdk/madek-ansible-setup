@@ -5,16 +5,13 @@
     - libimage-exiftool-perl
     - imagemagick
 
-
-- name: Create target dir 
-  file: path={{madek_root_dir}}
+- file: path={{madek_root_dir}}
         owner=madek
         group=madek
         state=directory
         mode=0755
 
 - debug: var=madek_git_ref
-  tags: [debug]
 
 - name: Git clone or update project
   sudo: True
@@ -25,12 +22,10 @@
         update=yes
         force=yes
   register: git_clone_or_update
-  tags: [debug]
   #failed_when: "'Local modifications exist' in git_clone_or_update.msg"
   #changed_when: git_clone_or_update.before != git_clone_or_update.after
 
-- name: Create target dir 
-  file: path=/etc/madek
+- file: path=/etc/madek
         owner=root
         group=root
         state=directory

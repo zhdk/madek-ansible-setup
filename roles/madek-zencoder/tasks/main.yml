@@ -55,7 +55,12 @@
   register: zencoder_inbox_password_hash 
   changed_when: False
 
-- user: name={{zencoder_user_name}}
+- user: name=zencoder-import
+        remove=true
+        state=absent 
+  ignore_errors: yes
+
+- user: name=zencoder
         shell=/usr/sbin/nologin
         group=madek
         uid=1006
@@ -69,7 +74,7 @@
         mode=0710
 
 - file: path={{zencoder_inbox_root_path}}/import
-        owner={{zencoder_user_name}}
+        owner=zencoder
         group=madek
         state=directory
         mode=0770
