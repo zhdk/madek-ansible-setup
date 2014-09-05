@@ -1,0 +1,33 @@
+
+### store newrelic key #########################################################
+
+- shell : echo '{{newrelic_key}}' > {{newrelic_key_file}}
+  when: newrelic_key is defined
+
+- file: path={{newrelic_key_file}}
+        mode=0600
+  when: newrelic_key is defined 
+
+- stat: path={{newrelic_key_file}} 
+  register: newrelic_key_file_stat
+
+- shell : cat {{newrelic_key_file}}
+  register: newrelic_key_file_content
+  changed_when: False
+  when: newrelic_key_file_stat.stat.exists
+
+- set_fact: stored_newrelic_key="{{newrelic_key_file_content.stdout}}"
+  when: newrelic_key_file_stat.stat.exists
+
+- template: src=newrelic.yml
+            dest={{new_relic_rails_app_root_path}}/config/newrelic.yml
+  register: newrelic_monitoring_config
+  when: stored_newrelic_key is defined
+
+- file: path={{new_relic_rails_app_root_path}}/tmp/restart.txt
+        state=touch
+  when: newrelic_monitoring_config is defined and newrelic_monitoring_config.changed
+
+
+
+            

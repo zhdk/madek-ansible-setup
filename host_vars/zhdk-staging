@@ -12,3 +12,6 @@ ssh_keys:
 
 
 removed_ssh_keys: []
+
+primary_hostname: staging.madek.zhdk.ch
+

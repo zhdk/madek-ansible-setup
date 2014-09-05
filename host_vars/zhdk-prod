@@ -1,6 +1,6 @@
 ### specific settings for host madek-test ###################################
 
-madek_git_ref: 2.0.12
+madek_git_ref: 2.0.13
 ntp_server: ntp.zhdk.ch
 zencoder_enabled: True
 zencoder_test_mode: False
@@ -12,3 +12,7 @@ ssh_keys:
 
 zencoder_inbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/zencoder"
 dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
+
+primary_hostname: medienarchiv.zhdk.ch
+
+db_dumps_enabled: True

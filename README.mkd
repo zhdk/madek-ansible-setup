@@ -30,12 +30,11 @@ Advanced Topics
 
 ### Configure Zencoder
 
-Set the `zencoder_enabled` variable in your hosts file to `True`, and
+Set the `zencoder_enabled` variable in your host file to `True`, and
 the `zencoder_test_mode` to your desired value (probably `False`).
 
-    [madek:vars]
-    zencoder_enabled=True
-    zencoder_test_mode=False
+    zencoder_enabled: True
+    zencoder_test_mode: False
 
 Keep these parameters in the hosts file. Run the setup-and-deploy play
 with an additional parameter specifying your zencoder api-key:
@@ -48,6 +47,11 @@ setup-and-deploy playbook will be run in the future, to upgrade your
 madek installation e.g.
 
 
+### Configure Newrelic Application Monitoring 
+
+Perform the following once: 
+
+    ansible-playbook  -i hosts play_setup-and-deploy.yml -e 'newrelic_key=YOUR-NEWRELIC-KEY'
 
 
 TODO: 

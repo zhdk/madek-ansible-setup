@@ -31,6 +31,14 @@
 
     - role: madek
 
+    - role: db-backups
+      tags: [db-backups]
+
+    - role: newrelic-rails-app-monitoring 
+      newrelic_appname: MAdeK
+      new_relic_rails_app_root_path: "{{madek_root_dir}}"
+      tags: [newrelic-rails-app-monitoring]
+
     - role: madek-dropbox
 
     - role: madek-zencoder
