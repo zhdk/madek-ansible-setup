@@ -1,0 +1,8 @@
+---
+
+- hosts: madek
+
+  tasks: 
+
+  - fetch: src={{madek_root_dir}}/db/media_files/{{rails_env}}/backups/latest.pgbin
+            dest=tmp/
