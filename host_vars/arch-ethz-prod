@@ -17,3 +17,7 @@ primary_hostname: 195.176.254.84
 #primary_hostname: arch.ethz.madek.zhdk.ch
 
 db_dumps_enabled: True
+
+http_basic_auth_enabled: true
+http_basic_auth_name: Plattform Forschung
+

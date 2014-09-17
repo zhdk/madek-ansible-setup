@@ -58,6 +58,26 @@
             owner=madek
             mode=0755
 
+
+### http_basic_auth (don't ask) ###############################################
+
+- apt: pkg=python-passlib state=latest update_cache=yes cache_valid_time=3600
+  when: http_basic_auth_enabled 
+        and http_basic_auth_user_name is defined
+        and http_basic_auth_user_password is defined
+  tags: http_basic_auth
+
+- htpasswd: path=/etc/apache2/madek_passwords
+            name={{http_basic_auth_user_name}}
+            password={{http_basic_auth_user_password}}
+  when: http_basic_auth_enabled 
+        and http_basic_auth_user_name is defined
+        and http_basic_auth_user_password is defined
+  tags: http_basic_auth
+
+
+### apache httpd site #########################################################
+
 - name: Apache site config
   template: src=apache.conf
             dest=/etc/apache2/sites-available/madek.conf
