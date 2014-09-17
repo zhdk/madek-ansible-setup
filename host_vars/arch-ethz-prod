@@ -1,6 +1,6 @@
 ### specific settings for arch.ethz production aka http://arch.ethz.madek.zhdk.ch/
 
-madek_git_ref: staging
+madek_git_ref: ts
 ntp_server: ntp.zhdk.ch
 zencoder_enabled: False
 zencoder_test_mode: False
@@ -13,6 +13,7 @@ ssh_keys:
 zencoder_inbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/zencoder"
 dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
 
-primary_hostname: arch.ethz.madek.zhdk.ch
+primary_hostname: 195.176.254.84 
+#primary_hostname: arch.ethz.madek.zhdk.ch
 
 db_dumps_enabled: True

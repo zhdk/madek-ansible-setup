@@ -13,5 +13,8 @@
           && bundle exec rake db:seed' madek
          executable=/bin/bash
 
+- file: path={{madek_root_dir}}/db/seeds.rb
+        state=absent
+
 
 
