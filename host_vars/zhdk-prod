@@ -1,6 +1,6 @@
 ### specific settings for zhdk production aka medienarchiv.zhdk.ch 
 
-madek_git_ref: 2.0.15
+madek_git_ref: 2.1.0
 ntp_server: ntp.zhdk.ch
 zencoder_enabled: True
 zencoder_test_mode: False
