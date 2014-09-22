@@ -1,0 +1,9 @@
+# Ansible managed
+{{madek_root_dir}}/log/*.log {
+daily
+missingok
+rotate 99
+compress
+delaycompress
+copytruncate
+}

@@ -19,6 +19,8 @@ ssh_keys:
 zencoder_inbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/zencoder"
 dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
 
+color_scheme: green
+
 primary_hostname: medienarchiv.zhdk.ch
 
 db_dumps_enabled: True

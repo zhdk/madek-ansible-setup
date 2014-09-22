@@ -2,3 +2,4 @@ http_basic_auth_enabled: false
 zhdk_integration: false
 zencoder_enabled: false
 zencoder_test_mode: true
+color_scheme: blue

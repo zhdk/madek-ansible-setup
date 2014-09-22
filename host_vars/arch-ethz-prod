@@ -2,9 +2,11 @@
 
 madek_git_ref: ts
 ntp_server: ntp.zhdk.ch
-zencoder_enabled: False
-zencoder_test_mode: False
 zhdk_integration: False
+
+zencoder_enabled: True
+zencoder_test_mode: False
+
 
 ssh_keys: 
  - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxjIL2YhVqNXwDzzubbUuf839VUxo3gbelVqcifJw8EWfmzihDa80VXY6snamHdt3LmSOKc0BXbEVFD3GuehqUi+gjvRl7RE/YgQt9LjOyJAFzZRh+5XbQ+QCYrfdF8NdrlYv6qmGnTK2U0/SiHObc5qWLNVqdCUPY2AVg9/19PjtiaLxd74so1ApzgxzIubzw5WEdxd16pFvlcO6jmewwgjfTNa9hA9U6C9zCtX/KLiESmTpQIYAX9KB8hRbWM9vMmjR8mUymJeJYaEWRSEFlQz0kqYo3PRkLAs8vsuFhZUs5IVFx0Saig9MOgL1x5h/4UAtvGj3M20mG7/3wimtbw== DrTom@schank.ch"
@@ -21,3 +23,4 @@ db_dumps_enabled: True
 http_basic_auth_enabled: true
 http_basic_auth_name: Plattform Forschung
 
+color_scheme: red

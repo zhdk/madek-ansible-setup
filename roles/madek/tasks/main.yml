@@ -58,6 +58,17 @@
             owner=madek
             mode=0755
 
+### configure color scheme ###################################################
+
+- file: path={{madek_root_dir}}/app/assets/stylesheets/config/local
+        state=directory
+        owner=madek
+        mode=0755
+
+- template: src=colors.sass
+            dest={{madek_root_dir}}/app/assets/stylesheets/config/local/colors.sass
+            owner=madek
+
 
 ### http_basic_auth (don't ask) ###############################################
 
@@ -132,6 +143,15 @@
   register: precompile_assets
   changed_when: not precompile_assets.stderr | match("")
 
+
+### logrotate #################################################################
+
+- template: src=logrotate
+            dest=/etc/logrotate.d/madek
+
+- command: logrotate -f /etc/logrotate.d/madek
+
+### logrotate #################################################################
 
 - service:  name=apache2
             state=reloaded
