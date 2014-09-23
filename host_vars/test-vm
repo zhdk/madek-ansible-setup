@@ -1,5 +1,22 @@
+### specific settings for a local virtual machine 
 
 madek_git_ref: ts
-http_basic_auth_enabled: true
+
+color_scheme: blue
+
+### Zencoder ##################################################################
+
+zencoder_enabled: False
+zencoder_test_mode: True
+
+
+### Zhdk ######################################################################
+
+zhdk_integration: False
+
+
+
+### Passenger #################################################################
+passenger_min_instances: 1
 
 
