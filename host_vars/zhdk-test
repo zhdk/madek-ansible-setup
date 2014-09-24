@@ -38,6 +38,7 @@ db_dumps_enabled: False
 
 ### Passenger #################################################################
 passenger_min_instances: 1
+passenger_max_pool_size: 1
 
 
 

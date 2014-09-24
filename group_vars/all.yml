@@ -7,6 +7,7 @@ mri_ruby_version: 2.1.2
 zencoder_api_key_file: /etc/madek/zencoder_api_key.txt
 
 passenger_min_instances: 1
+passenger_max_pool_size: "{{ansible_processor_cores}}"
 
 # database
 database:
@@ -15,5 +16,5 @@ database:
   hostname: localhost
   port: 5432
   database: madek_production
-  pool: 10
+  pool: "{{ passenger_max_pool_size + 5 }}"
 
