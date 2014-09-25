@@ -1,7 +1,7 @@
 
 admin_person= Person.find_or_create_by pseudonym: 'Admin'
 
-admin_user= User.find_or_initialize_by login: 'admin'
+admin_user= User.find_or_initialize_by login: '{{admin_login}}'
 
 admin_user.update_attributes! \
   password: '{{admin_password}}', 

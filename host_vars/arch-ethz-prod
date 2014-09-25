@@ -16,6 +16,7 @@ zencoder_test_mode: False
 zhdk_integration: False
 ntp_server: ntp.zhdk.ch
 
+admin_login: admin_itz
 
 ssh_keys: 
  - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEA4Dn7DJZ923mketufL52fibawVVwEisSZAaeMA4qt2VYALMd37i8Hx5nP/d9FyCbIfiDj0GRcpLgKSgZrGRwX1UxkOAzYnzDFnY2gm2VjgIwV5Ryf5z4dbCvfxz2i9rpxM8lK2/iTDglxb9z2fBbwC+0WnhbeKy2+UusZjioE49U== rca@psy-q.ch"
