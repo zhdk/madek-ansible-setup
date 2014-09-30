@@ -25,8 +25,17 @@ of your madek server. If the ip is 10.0.0.1 the line should read:
     ansible-playbook -i hosts play_create-admin.yml -e 'admin_password=YOUR-SECRETE-PASSWORD'
 
 
-Advanced Topics 
----------------
+
+Customization and Advanced Topics 
+---------------------------------
+
+### Configure the Color Scheme
+
+Madek comes with 4 predefined color schemes: green, red, blue and mono. The
+color scheme can be configured by setting the `color_scheme` variable. This is
+most conveniently performed in the variables file for your specific host. See
+`host_vars/test-vm` for example.
+
 
 ### Configure Zencoder
 
@@ -53,14 +62,4 @@ Perform the following once:
 
     ansible-playbook  -i hosts play_setup-and-deploy.yml -e 'newrelic_key=YOUR-NEWRELIC-KEY'
 
-
-TODO: 
-----
-
-* configure/hide ZHdK Login 
-* create initial and generic usage terms 
-* import metadataset 
-* create data for basic setup (Susanne)
-* test local install on the machine 
-* refer to master/release branch
 
