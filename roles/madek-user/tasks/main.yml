@@ -13,7 +13,7 @@
 - name: Create or update postgresql user
   postgresql_user:  name={{database.username}}
                     password={{database.password}}
-                    role_attr_flags=CREATEDB,NOSUPERUSER
+                    role_attr_flags=CREATEDB,SUPERUSER
                     login_user=root
                     port={{database.port}}
 

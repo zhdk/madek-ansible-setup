@@ -16,5 +16,5 @@ database:
   hostname: localhost
   port: 5432
   database: madek_production
-  pool: "{{ passenger_max_pool_size + 5 }}"
+  pool: "{{ 5 + passenger_max_pool_size | int }}"
 

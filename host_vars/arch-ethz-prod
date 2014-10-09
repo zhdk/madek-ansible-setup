@@ -8,7 +8,7 @@ color_scheme: red
 ### Zencoder ##################################################################
 
 zencoder_enabled: True
-zencoder_test_mode: False
+zencoder_test_mode: True
 
 
 ### Zhdk ######################################################################
