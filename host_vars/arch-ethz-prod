@@ -1,6 +1,7 @@
 ### specific settings for arch.ethz production aka http://arch.ethz.madek.zhdk.ch/
 
-madek_git_ref: ts
+madek_git_ref: 2.2.2
+
 
 color_scheme: red
 
@@ -8,7 +9,7 @@ color_scheme: red
 ### Zencoder ##################################################################
 
 zencoder_enabled: True
-zencoder_test_mode: True
+zencoder_test_mode: False
 
 
 ### Zhdk ######################################################################
@@ -31,12 +32,12 @@ primary_hostname: 195.176.254.84
 
 
 ### Path adjustmens for mounts 
-# zencoder_inbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/zencoder"
-# dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
+zencoder_inbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/zencoder"
+dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
 
 
 ### Backups ###################################################################
-# db_dumps_enabled: True
+db_dumps_enabled: True
 
 
 ### HTTP Basic auth ###########################################################
@@ -44,5 +45,6 @@ http_basic_auth_enabled: true
 http_basic_auth_name: Plattform Forschung
 
 ### Passenger #################################################################
-passenger_min_instances: 3
+passenger_min_instances: 2
+passenger_max_pool_size: 6
 
