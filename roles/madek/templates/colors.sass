@@ -8,3 +8,7 @@ $scheme-blue          : true
 {% elif color_scheme == "mono" %}
 $scheme-mono          : true
 {% endif %}
+
+{% if custom_color is defined and custom_color %}
+$custom-color         : {{custom_color}}
+{% endif %}

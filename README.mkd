@@ -32,9 +32,12 @@ Customization and Advanced Topics
 ### Configure the Color Scheme
 
 Madek comes with 4 predefined color schemes: green, red, blue and mono. The
-color scheme can be configured by setting the `color_scheme` variable. This is
-most conveniently performed in the variables file for your specific host. See
-`host_vars/test-vm` for example.
+color scheme can be configured by setting the `color_scheme` variable. 
+You can also set a `custom_color` variable to a valid CSS color, which will 
+override the main color *on top of* the chosen scheme.
+
+This is most conveniently performed in the variables file for your specific host. 
+See `host_vars/test-vm` for example.
 
 
 ### Configure Zencoder

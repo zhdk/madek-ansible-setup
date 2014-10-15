@@ -3,6 +3,7 @@
 madek_git_ref: ts
 
 color_scheme: blue
+custom_color: '#6149c1' # purple
 
 ### Zencoder ##################################################################
 
