@@ -1,2 +1,2 @@
 [madek]
-zhdk-staging ansible_ssh_host=195.176.254.32 ansible_ssh_user=root
+zhdk-staging ansible_ssh_host=195.176.247.137 ansible_ssh_user=root
