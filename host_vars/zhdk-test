@@ -1,8 +1,9 @@
 ### specific settings for host madek-test ###################################
 
-madek_git_ref: ts
+madek_git_ref: madek-v3
 
-color_scheme: mono
+color_scheme: blue
+custom_color: '#6149c1' # purple
 
 
 ### Zencoder ##################################################################
