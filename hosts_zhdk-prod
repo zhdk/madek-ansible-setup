@@ -1,2 +1,2 @@
 [madek]
-zhdk-prod ansible_ssh_host=195.176.254.86 ansible_ssh_user=root
+zhdk-prod ansible_ssh_host=195.176.247.138 ansible_ssh_user=root

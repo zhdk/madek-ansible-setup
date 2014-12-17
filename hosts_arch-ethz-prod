@@ -1,2 +1,2 @@
 [madek]
-arch-ethz-prod ansible_ssh_host=195.176.254.84 ansible_ssh_user=root
+arch-ethz-prod ansible_ssh_host=195.176.247.62 ansible_ssh_user=root
