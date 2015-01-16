@@ -41,7 +41,8 @@ dropbox_root_path: "{{madek_root_dir}}/db/media_files/{{rails_env}}/dropbox"
 
 
 ### Backups ###################################################################
-db_dumps_enabled: True
+db_backups_enabled: True
+db_dump_data_enabled: True
 
 
 ### Passenger #################################################################

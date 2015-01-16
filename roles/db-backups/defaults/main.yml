@@ -1,1 +1,2 @@
-db_dumps_enabled: False
+db_backups_enabled: False
+db_dump_data_enabled: False

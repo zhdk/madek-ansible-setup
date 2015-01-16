@@ -34,7 +34,7 @@ primary_hostname: staging.madek.zhdk.ch
 
 
 ### Backups ###################################################################
-db_dumps_enabled: False
+db_backups_enabled: False
 
 
 ### Passenger #################################################################
