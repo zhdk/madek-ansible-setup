@@ -1,5 +1,6 @@
 # Ansible managed
 {{madek_root_dir}}/log/*.log {
+su madek madek
 daily
 missingok
 rotate 99

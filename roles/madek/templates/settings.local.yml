@@ -1,3 +1,11 @@
 use_x_sendfile: true
 
 zhdk_integration: {{zhdk_integration}}
+
+
+release: 
+  version_major: {{ release.version_major | default('') }}
+  version_minor: {{ release.version_minor | default('') }} 
+  version_patch: {{ release.version_patch | default('') }}
+  version_pre: {{ release.version_pre | default('') }}
+  version_build: {{ release.version_build | default('') }}

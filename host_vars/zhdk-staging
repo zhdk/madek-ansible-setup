@@ -4,6 +4,7 @@ madek_git_ref: staging
 
 color_scheme: blue
 
+release: {}
 
 ### Zencoder ##################################################################
 
