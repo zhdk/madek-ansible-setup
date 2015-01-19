@@ -1,6 +1,10 @@
 Setting up Madek with Ansible
 =============================
 
+**ATTENTION**: Checkout the `madek-v3` branch to deploy to testing. Unintended
+(bad) things can happen if you don't keep the submodules in sync when switching
+branches. It is probably wise to check out the madek-v3 in a different location.
+
 Step by step procedure
 ----------------------
 
