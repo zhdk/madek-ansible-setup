@@ -4,7 +4,14 @@ madek_git_ref: staging
 
 color_scheme: blue
 
-release: {}
+release: 
+  version_major: 2
+  version_minor: 8
+  version_patch: 2
+  version_pre: ¡DELETE!
+  version_build: ¡DELETE!
+
+
 
 ### Zencoder ##################################################################
 
