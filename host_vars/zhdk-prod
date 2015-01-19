@@ -1,17 +1,15 @@
 ### specific settings for zhdk production aka medienarchiv.zhdk.ch 
 
-madek_git_ref: 2.8.2
-
 color_scheme: green
-
 
 release: 
   version_major: 2
   version_minor: 8
-  version_patch: 2
+  version_patch: 3
   version_pre: ¡DELETE!
   version_build: ¡DELETE!
 
+madek_git_ref: "{{release.version_major}}.{{release.version_minor}}.{{release.version_patch}}"
 
 ### Zencoder ##################################################################
 
