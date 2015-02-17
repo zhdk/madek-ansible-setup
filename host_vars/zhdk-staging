@@ -6,9 +6,9 @@ color_scheme: blue
 
 release: 
   version_major: 2
-  version_minor: 8
-  version_patch: 2
-  version_pre: ¡DELETE!
+  version_minor: 9
+  version_patch: 0
+  version_pre: -beta
   version_build: ¡DELETE!
 
 
