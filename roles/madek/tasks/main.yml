@@ -16,7 +16,7 @@
 - name: Git clone or update project
   sudo: True
   sudo_user: madek
-  git:  repo=https://github.com/zhdk/madek.git
+  git:  repo=https://github.com/Madek/madek-webapp.git
         dest={{madek_root_dir}}
         version={{madek_git_ref}}
         update=yes
