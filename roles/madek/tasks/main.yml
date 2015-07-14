@@ -46,6 +46,7 @@
             group=madek
             mode=0600
 
+- name: Configure local settings
   template: src=settings.local.yml
             dest={{madek_root_dir}}/config/settings.local.yml
             owner=madek
